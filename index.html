@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seas & Oceans - Pearson Geography Class 8-9</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #1a73e8;
+            --secondary: #34a853;
+            --accent: #4285f4;
+            --light: #f8f9fa;
+            --dark: #202124;
+            --ocean-deep: #0056b3;
+            --ocean-shallow: #00bcd4;
+        }
+
+        body {
+            background-color: #f0f7ff;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(to right, var(--ocean-deep), var(--ocean-shallow));
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            font-size: 2rem;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 50, 100, 0.7), rgba(0, 80, 120, 0.7)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%23005c97" width="100" height="100"/><path fill="%23007eb3" d="M0 50 L100 50 L100 100 L0 100 Z"/></svg>');
+            background-size: cover;
+            color: white;
+            text-align: center;
+            padding: 4rem 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #2c8e46;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Content Sections */
+        .section-title {
+            text-align: center;
+            margin: 2rem 0;
+            color: var(--ocean-deep);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--ocean-shallow), var(--ocean-deep));
+            border-radius: 2px;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-img {
+            height: 200px;
+            background-color: var(--ocean-shallow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card h3 {
+            color: var(--ocean-deep);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Ocean Facts Section */
+        .facts-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .fact-box {
+            background: linear-gradient(135deg, var(--ocean-shallow), var(--ocean-deep));
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .fact-box i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Interactive Map */
+        .map-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .world-map {
+            width: 100%;
+            height: 400px;
+            background-color: #e8f4fc;
+            border-radius: 8px;
+            margin: 1rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ocean {
+            position: absolute;
+            background-color: var(--ocean-shallow);
+            border: 1px solid var(--ocean-deep);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+
+        .ocean:hover {
+            background-color: var(--ocean-deep);
+            z-index: 10;
+            transform: scale(1.05);
+        }
+
+        /* Quiz Section */
+        .quiz-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 3rem;
+        }
+
+        .quiz-question {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .option {
+            padding: 1rem;
+            background-color: #f0f7ff;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option:hover {
+            background-color: #d4e7ff;
+        }
+
+        .option.selected {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, var(--ocean-deep), var(--ocean-shallow));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .menu-toggle {
+                display: block;
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .card-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animation */
+        @keyframes wave {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(-10px); }
+            100% { transform: translateX(0); }
+        }
+
+        .wave-animation {
+            animation: wave 5s infinite ease-in-out;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-water"></i>
+                    <h1>Seas & Oceans</h1>
+                </div>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#intro">Introduction</a></li>
+                        <li><a href="#importance">Importance</a></li>
+                        <li><a href="#oceans">Major Oceans</a></li>
+                        <li><a href="#map">Interactive Map</a></li>
+                        <li><a href="#quiz">Quiz</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Exploring the World's <span class="wave-animation">Seas & Oceans</span></h2>
+            <p>Discover the fascinating world of marine geography, ocean currents, and the importance of oceans for our planet. Designed for Class 8 and 9 Pearson Geography students.</p>
+            <a href="#intro" class="btn">Start Learning</a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Introduction Section -->
+        <section id="intro">
+            <h2 class="section-title">Introduction to Oceans</h2>
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-img">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>What are Oceans?</h3>
+                        <p>Oceans are vast bodies of saltwater that cover approximately 71% of the Earth's surface. They play a crucial role in regulating climate and supporting life.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Ocean Currents</h3>
+                        <p>Ocean currents are continuous, directed movements of seawater generated by forces acting upon it, including wind, temperature differences, and Earth's rotation.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img">
+                        <i class="fas fa-fish"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Marine Life</h3>
+                        <p>Oceans are home to an incredible diversity of life, from microscopic plankton to the largest animal on Earth, the blue whale.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Importance Section -->
+        <section id="importance">
+            <h2 class="section-title">Importance of Oceans</h2>
+            <div class="facts-container">
+                <div class="fact-box">
+                    <i class="fas fa-temperature-low"></i>
+                    <h3>Climate Regulation</h3>
+                    <p>Oceans absorb about 30% of carbon dioxide produced by humans, buffering the impacts of global warming.</p>
+                </div>
+                <div class="fact-box">
+                    <i class="fas fa-oxygen"></i>
+                    <h3>Oxygen Production</h3>
+                    <p>Oceans produce over 50% of the world's oxygen through phytoplankton photosynthesis.</p>
+                </div>
+                <div class="fact-box">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Food Source</h3>
+                    <p>Over 3 billion people depend on marine and coastal biodiversity for their livelihoods.</p>
+                </div>
+                <div class="fact-box">
+                    <i class="fas fa-ship"></i>
+                    <h3>Transportation</h3>
+                    <p>Oceans facilitate about 90% of world trade through maritime transportation.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Major Oceans Section -->
+        <section id="oceans">
+            <h2 class="section-title">Major Oceans of the World</h2>
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-img" style="background-color: #1a73e8;">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Pacific Ocean</h3>
+                        <p>The largest and deepest ocean, covering about 30% of the Earth's surface. It stretches from the Arctic to the Antarctic and is bounded by Asia and Australia on the west and the Americas on the east.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img" style="background-color: #34a853;">
+                        <i class="fas fa-globe-africa"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Atlantic Ocean</h3>
+                        <p>The second largest ocean, covering approximately 20% of the Earth's surface. It separates the Americas from Europe and Africa.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img" style="background-color: #fbbc05;">
+                        <i class="fas fa-globe-asia"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Indian Ocean</h3>
+                        <p>The third largest ocean, bounded by Asia to the north, Africa to the west, Australia to the east, and the Southern Ocean to the south.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Map Section -->
+        <section id="map">
+            <h2 class="section-title">Interactive Ocean Map</h2>
+            <div class="map-container">
+                <p>Click on different ocean areas to learn more about them:</p>
+                <div class="world-map">
+                    <div class="ocean" style="width: 40%; height: 35%; top: 15%; left: 25%;">Pacific Ocean</div>
+                    <div class="ocean" style="width: 20%; height: 35%; top: 15%; left: 65%;">Atlantic Ocean</div>
+                    <div class="ocean" style="width: 25%; height: 30%; top: 25%; left: 70%;">Indian Ocean</div>
+                    <div class="ocean" style="width: 35%; height: 25%; top: 60%; left: 30%;">Southern Ocean</div>
+                    <div class="ocean" style="width: 30%; height: 20%; top: 5%; left: 30%;">Arctic Ocean</div>
+                </div>
+                <div id="map-info">
+                    <p>Select an ocean to learn more about it.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz">
+            <h2 class="section-title">Test Your Knowledge</h2>
+            <div class="quiz-container">
+                <div class="quiz-question">
+                    <h3>1. Which is the largest ocean on Earth?</h3>
+                    <div class="options">
+                        <div class="option">Atlantic Ocean</div>
+                        <div class="option correct">Pacific Ocean</div>
+                        <div class="option">Indian Ocean</div>
+                        <div class="option">Arctic Ocean</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <h3>2. What percentage of the Earth's surface is covered by oceans?</h3>
+                    <div class="options">
+                        <div class="option">50%</div>
+                        <div class="option">60%</div>
+                        <div class="option correct">71%</div>
+                        <div class="option">80%</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <h3>3. Which ocean is the warmest?</h3>
+                    <div class="options">
+                        <div class="option">Atlantic Ocean</div>
+                        <div class="option correct">Indian Ocean</div>
+                        <div class="option">Pacific Ocean</div>
+                        <div class="option">Southern Ocean</div>
+                    </div>
+                </div>
+                <button class="btn" id="submit-quiz">Submit Answers</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">
+                    <i class="fas fa-water"></i>
+                    <h2>Seas & Oceans</h2>
+                </div>
+                <p>Educational Resource for Pearson Geography Classes 8 & 9</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+                <p>&copy; 2023 Geography Education. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+
+        // Interactive map functionality
+        const oceanAreas = document.querySelectorAll('.ocean');
+        const mapInfo = document.getElementById('map-info');
+        
+        const oceanData = {
+            'Pacific Ocean': 'The Pacific Ocean is the largest and deepest ocean, covering approximately 63 million square miles. It contains more than half of the free water on Earth and is larger than all of Earth\'s land area combined.',
+            'Atlantic Ocean': 'The Atlantic Ocean is the second largest ocean, covering about 41 million square miles. It separates the Americas from Europe and Africa and has the longest coastline.',
+            'Indian Ocean': 'The Indian Ocean is the third largest ocean, covering about 27 million square miles. It is the warmest ocean and has limited marine life due to higher water temperatures.',
+            'Southern Ocean': 'The Southern Ocean, also known as the Antarctic Ocean, surrounds Antarctica. It is the fourth largest ocean and is home to the Antarctic Circumpolar Current.',
+            'Arctic Ocean': 'The Arctic Ocean is the smallest and shallowest ocean, covering about 5.4 million square miles. It is surrounded by the landmasses of North America, Eurasia, and Greenland.'
+        };
+
+        oceanAreas.forEach(ocean => {
+            ocean.addEventListener('click', function() {
+                const oceanName = this.textContent;
+                mapInfo.innerHTML = `<h3>${oceanName}</h3><p>${oceanData[oceanName]}</p>`;
+            });
+        });
+
+        // Quiz functionality
+        const options = document.querySelectorAll('.option');
+        const submitButton = document.getElementById('submit-quiz');
+        
+        options.forEach(option => {
+            option.addEventListener('click', function() {
+                // Remove selected class from siblings
+                const siblings = this.parentElement.children;
+                for (let sibling of siblings) {
+                    sibling.classList.remove('selected');
+                }
+                
+                // Add selected class to clicked option
+                this.classList.add('selected');
+            });
+        });
+
+        submitButton.addEventListener('click', function() {
+            let score = 0;
+            const questions = document.querySelectorAll('.quiz-question');
+            
+            questions.forEach(question => {
+                const selectedOption = question.querySelector('.option.selected');
+                if (selectedOption && selectedOption.classList.contains('correct')) {
+                    score++;
+                    selectedOption.style.backgroundColor = '#34a853';
+                } else if (selectedOption) {
+                    selectedOption.style.backgroundColor = '#ea4335';
+                    // Highlight correct answer
+                    const correctOption = question.querySelector('.option.correct');
+                    correctOption.style.backgroundColor = '#34a853';
+                }
+            });
+            
+            alert(`You scored ${score} out of ${questions.length}!`);
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seas & Oceans - Pearson Geography Class 8-9</title>
+    <title>Seas & Oceans - Geography</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap">
     <style>
         /* Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         :root {
@@ -22,10 +22,13 @@
             --dark: #202124;
             --ocean-deep: #0056b3;
             --ocean-shallow: #00bcd4;
+            --coral: #ff7f50;
+            --sand: #f5deb3;
         }
 
         body {
-            background-color: #f0f7ff;
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(to bottom, #e6f7ff, #f0f7ff);
             color: #333;
             line-height: 1.6;
             overflow-x: hidden;
@@ -38,6 +41,11 @@
             padding: 0 20px;
         }
 
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
         /* Header Styles */
         header {
             background: linear-gradient(to right, var(--ocean-deep), var(--ocean-shallow));
@@ -46,7 +54,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
         }
 
         .header-content {
@@ -62,30 +70,33 @@
         }
 
         .logo i {
-            font-size: 2rem;
+            font-size: 2.2rem;
+            color: var(--coral);
         }
 
         .logo h1 {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 1.5rem;
+            gap: 1.8rem;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             transition: all 0.3s ease;
             padding: 0.5rem;
             border-radius: 4px;
+            font-size: 1.1rem;
         }
 
         nav a:hover {
             background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
         }
 
         .menu-toggle {
@@ -96,51 +107,58 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 50, 100, 0.7), rgba(0, 80, 120, 0.7)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%23005c97" width="100" height="100"/><path fill="%23007eb3" d="M0 50 L100 50 L100 100 L0 100 Z"/></svg>');
+            background: linear-gradient(rgba(0, 50, 100, 0.85), rgba(0, 80, 120, 0.85)), url('https://images.unsplash.com/photo-1536935338788-846bb9981813?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
+            background-position: center;
             color: white;
             text-align: center;
-            padding: 4rem 1rem;
+            padding: 5rem 1rem;
             margin-bottom: 2rem;
+            border-radius: 0 0 20px 20px;
         }
 
         .hero h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             max-width: 800px;
-            margin: 0 auto 2rem;
+            margin: 0 auto 2.5rem;
+            font-weight: 500;
         }
 
         .btn {
             display: inline-block;
             background-color: var(--secondary);
             color: white;
-            padding: 0.8rem 1.5rem;
+            padding: 1rem 2rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .btn:hover {
             background-color: #2c8e46;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
         }
 
         /* Content Sections */
         .section-title {
             text-align: center;
-            margin: 2rem 0;
+            margin: 3rem 0;
             color: var(--ocean-deep);
             position: relative;
-            padding-bottom: 0.5rem;
+            padding-bottom: 1rem;
+            font-size: 2.5rem;
         }
 
         .section-title:after {
@@ -149,96 +167,120 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
+            width: 150px;
+            height: 5px;
             background: linear-gradient(to right, var(--ocean-shallow), var(--ocean-deep));
-            border-radius: 2px;
+            border-radius: 3px;
         }
 
         .card-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 4rem;
         }
 
         .card {
             background-color: white;
-            border-radius: 10px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
 
         .card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-12px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
 
         .card-img {
-            height: 200px;
+            height: 220px;
             background-color: var(--ocean-shallow);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 4rem;
+            font-size: 4.5rem;
+            background-size: cover;
+            background-position: center;
         }
 
         .card-content {
-            padding: 1.5rem;
+            padding: 2rem;
+            flex-grow: 1;
         }
 
         .card h3 {
             color: var(--ocean-deep);
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .card p {
+            margin-bottom: 1.5rem;
+            color: #555;
         }
 
         /* Ocean Facts Section */
         .facts-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
         }
 
         .fact-box {
             background: linear-gradient(135deg, var(--ocean-shallow), var(--ocean-deep));
             color: white;
-            padding: 1.5rem;
-            border-radius: 10px;
+            padding: 2rem;
+            border-radius: 15px;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .fact-box:hover {
+            transform: scale(1.03);
         }
 
         .fact-box i {
-            font-size: 2.5rem;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--coral);
+        }
+
+        .fact-box h3 {
+            font-size: 1.5rem;
             margin-bottom: 1rem;
         }
 
         /* Interactive Map */
         .map-container {
             background-color: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            margin-bottom: 3rem;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 4rem;
             text-align: center;
         }
 
         .world-map {
             width: 100%;
-            height: 400px;
+            height: 450px;
             background-color: #e8f4fc;
-            border-radius: 8px;
-            margin: 1rem 0;
+            border-radius: 12px;
+            margin: 1.5rem 0;
             position: relative;
             overflow: hidden;
+            background: url('https://images.unsplash.com/photo-1587440875875-9576fb9f5e56?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80') center/cover;
         }
 
         .ocean {
             position: absolute;
-            background-color: var(--ocean-shallow);
-            border: 1px solid var(--ocean-deep);
+            background-color: rgba(0, 188, 212, 0.6);
+            border: 2px solid var(--ocean-deep);
             cursor: pointer;
             transition: all 0.3s ease;
             display: flex;
@@ -246,129 +288,249 @@
             justify-content: center;
             color: white;
             font-weight: bold;
-            font-size: 0.8rem;
+            font-size: 1rem;
             text-align: center;
+            border-radius: 8px;
         }
 
         .ocean:hover {
-            background-color: var(--ocean-deep);
+            background-color: rgba(0, 86, 179, 0.8);
             z-index: 10;
-            transform: scale(1.05);
+            transform: scale(1.08);
         }
 
         /* Quiz Section */
         .quiz-container {
             background-color: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            margin-bottom: 3rem;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 4rem;
         }
 
         .quiz-question {
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid #eee;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #eee;
+        }
+
+        .quiz-question:last-child {
+            border-bottom: none;
         }
 
         .options {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1.2rem;
         }
 
         .option {
-            padding: 1rem;
+            padding: 1.2rem;
             background-color: #f0f7ff;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
             transition: all 0.3s ease;
+            border: 2px solid transparent;
         }
 
         .option:hover {
             background-color: #d4e7ff;
+            border-color: var(--accent);
         }
 
         .option.selected {
             background-color: var(--accent);
             color: white;
+            border-color: var(--ocean-deep);
         }
 
         /* Footer */
         footer {
             background: linear-gradient(to right, var(--ocean-deep), var(--ocean-shallow));
             color: white;
-            padding: 2rem 0;
+            padding: 3rem 0;
             text-align: center;
+            border-radius: 20px 20px 0 0;
         }
 
         .footer-content {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 1.5rem;
         }
 
         .social-icons {
             display: flex;
             justify-content: center;
-            gap: 1rem;
-            margin: 1rem 0;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
         }
 
         .social-icons a {
             color: white;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             transition: transform 0.3s ease;
         }
 
         .social-icons a:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #777;
+            transition: color 0.3s ease;
+        }
+
+        .close-modal:hover {
+            color: var(--ocean-deep);
+        }
+
+        .stars {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .star {
+            font-size: 2.5rem;
+            color: #ddd;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .star:hover,
+        .star.active {
+            color: #ffc107;
         }
 
         /* Responsive Design */
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
             .header-content {
                 flex-direction: column;
                 text-align: center;
-                gap: 1rem;
+                gap: 1.2rem;
             }
 
             nav ul {
                 flex-direction: column;
-                gap: 0.5rem;
+                gap: 0.8rem;
             }
 
             .menu-toggle {
                 display: block;
                 position: absolute;
-                top: 1rem;
-                right: 1rem;
+                top: 1.2rem;
+                right: 1.2rem;
             }
 
             .hero h2 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
 
             .hero p {
-                font-size: 1rem;
+                font-size: 1.1rem;
             }
 
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 600px) {
             .card-container {
                 grid-template-columns: 1fr;
+            }
+            
+            .hero {
+                padding: 3rem 1rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .card-img {
+                height: 180px;
             }
         }
 
         /* Animation */
         @keyframes wave {
-            0% { transform: translateX(0); }
-            50% { transform: translateX(-10px); }
-            100% { transform: translateX(0); }
+            0% { transform: translateX(0) rotate(0deg); }
+            50% { transform: translateX(-5px) rotate(2deg); }
+            100% { transform: translateX(0) rotate(0deg); }
         }
 
         .wave-animation {
             animation: wave 5s infinite ease-in-out;
             display: inline-block;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        .float-animation {
+            animation: float 6s infinite ease-in-out;
+        }
+
+        /* Image replacement for card images */
+        .pacific-img {
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80') center/cover;
+        }
+
+        .atlantic-img {
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1560507074-5d0db1c695ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80') center/cover;
+        }
+
+        .indian-img {
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1566024287287-42f19fcd36f2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80') center/cover;
+        }
+
+        .marine-img {
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1551893478-d726eaf0442c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80') center/cover;
+        }
+
+        .currents-img {
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80') center/cover;
+        }
+
+        .ocean-floor-img {
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1590955414593-3e6a6d2c0318?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80') center/cover;
         }
     </style>
 </head>
@@ -413,30 +575,33 @@
             <h2 class="section-title">Introduction to Oceans</h2>
             <div class="card-container">
                 <div class="card">
-                    <div class="card-img">
+                    <div class="card-img pacific-img">
                         <i class="fas fa-globe-americas"></i>
                     </div>
                     <div class="card-content">
                         <h3>What are Oceans?</h3>
                         <p>Oceans are vast bodies of saltwater that cover approximately 71% of the Earth's surface. They play a crucial role in regulating climate and supporting life.</p>
+                        <p>The five main oceans are the Pacific, Atlantic, Indian, Southern, and Arctic Oceans.</p>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-img">
+                    <div class="card-img currents-img">
                         <i class="fas fa-wind"></i>
                     </div>
                     <div class="card-content">
                         <h3>Ocean Currents</h3>
                         <p>Ocean currents are continuous, directed movements of seawater generated by forces acting upon it, including wind, temperature differences, and Earth's rotation.</p>
+                        <p>Currents transport heat from the equator to the poles, regulating global climate.</p>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-img">
+                    <div class="card-img marine-img">
                         <i class="fas fa-fish"></i>
                     </div>
                     <div class="card-content">
                         <h3>Marine Life</h3>
                         <p>Oceans are home to an incredible diversity of life, from microscopic plankton to the largest animal on Earth, the blue whale.</p>
+                        <p>It's estimated that over 2 million marine species exist, with many more yet to be discovered.</p>
                     </div>
                 </div>
             </div>
@@ -446,22 +611,22 @@
         <section id="importance">
             <h2 class="section-title">Importance of Oceans</h2>
             <div class="facts-container">
-                <div class="fact-box">
+                <div class="fact-box float-animation">
                     <i class="fas fa-temperature-low"></i>
                     <h3>Climate Regulation</h3>
                     <p>Oceans absorb about 30% of carbon dioxide produced by humans, buffering the impacts of global warming.</p>
                 </div>
-                <div class="fact-box">
+                <div class="fact-box float-animation">
                     <i class="fas fa-oxygen"></i>
                     <h3>Oxygen Production</h3>
                     <p>Oceans produce over 50% of the world's oxygen through phytoplankton photosynthesis.</p>
                 </div>
-                <div class="fact-box">
+                <div class="fact-box float-animation">
                     <i class="fas fa-utensils"></i>
                     <h3>Food Source</h3>
                     <p>Over 3 billion people depend on marine and coastal biodiversity for their livelihoods.</p>
                 </div>
-                <div class="fact-box">
+                <div class="fact-box float-animation">
                     <i class="fas fa-ship"></i>
                     <h3>Transportation</h3>
                     <p>Oceans facilitate about 90% of world trade through maritime transportation.</p>
@@ -474,30 +639,71 @@
             <h2 class="section-title">Major Oceans of the World</h2>
             <div class="card-container">
                 <div class="card">
-                    <div class="card-img" style="background-color: #1a73e8;">
+                    <div class="card-img pacific-img">
                         <i class="fas fa-globe-americas"></i>
                     </div>
                     <div class="card-content">
                         <h3>Pacific Ocean</h3>
                         <p>The largest and deepest ocean, covering about 30% of the Earth's surface. It stretches from the Arctic to the Antarctic and is bounded by Asia and Australia on the west and the Americas on the east.</p>
+                        <p><strong>Area:</strong> 165,250,000 km²</p>
+                        <p><strong>Deepest Point:</strong> Mariana Trench (10,928 m)</p>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-img" style="background-color: #34a853;">
+                    <div class="card-img atlantic-img">
                         <i class="fas fa-globe-africa"></i>
                     </div>
                     <div class="card-content">
                         <h3>Atlantic Ocean</h3>
                         <p>The second largest ocean, covering approximately 20% of the Earth's surface. It separates the Americas from Europe and Africa.</p>
+                        <p><strong>Area:</strong> 106,460,000 km²</p>
+                        <p><strong>Deepest Point:</strong> Puerto Rico Trench (8,376 m)</p>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-img" style="background-color: #fbbc05;">
+                    <div class="card-img indian-img">
                         <i class="fas fa-globe-asia"></i>
                     </div>
                     <div class="card-content">
                         <h3>Indian Ocean</h3>
                         <p>The third largest ocean, bounded by Asia to the north, Africa to the west, Australia to the east, and the Southern Ocean to the south.</p>
+                        <p><strong>Area:</strong> 70,560,000 km²</p>
+                        <p><strong>Deepest Point:</strong> Java Trench (7,258 m)</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-img" style="background-color: #1a73e8;">
+                        <i class="fas fa-icicles"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Arctic Ocean</h3>
+                        <p>The smallest and shallowest of the world's five major oceans, surrounding the North Pole. It is partially covered by sea ice throughout the year.</p>
+                        <p><strong>Area:</strong> 14,060,000 km²</p>
+                        <p><strong>Deepest Point:</strong> Eurasian Basin (5,450 m)</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img" style="background-color: #34a853;">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Southern Ocean</h3>
+                        <p>Also known as the Antarctic Ocean, it surrounds Antarctica and is the fourth-largest ocean. It is home to the powerful Antarctic Circumpolar Current.</p>
+                        <p><strong>Area:</strong> 20,330,000 km²</p>
+                        <p><strong>Deepest Point:</strong> South Sandwich Trench (7,235 m)</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img ocean-floor-img">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Ocean Floor Features</h3>
+                        <p>The ocean floor contains diverse features including continental shelves, abyssal plains, mid-ocean ridges, and deep-sea trenches.</p>
+                        <p>Underwater mountains called seamounts and hydrothermal vents supporting unique ecosystems are also found on the ocean floor.</p>
                     </div>
                 </div>
             </div>
@@ -552,6 +758,160 @@
                         <div class="option">Southern Ocean</div>
                     </div>
                 </div>
+                <div class="quiz-question">
+                    <h3>4. What is the deepest point in the ocean called?</h3>
+                    <div class="options">
+                        <div class="option">Abyssal Plain</div>
+                        <div class="option">Seamount</div>
+                        <div class="option correct">Mariana Trench</div>
+                        <div class="option">Mid-Ocean Ridge</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <h3>5. Which ocean current affects the climate of Western Europe?</h3>
+                    <div class="options">
+                        <div class="option">California Current</div>
+                        <div class="option">Antarctic Circumpolar Current</div>
+                        <div class="option correct">Gulf Stream</div>
+                        <div class="option">Kuroshio Current</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <h3>6. What causes tides in the oceans?</h3>
+                    <div class="options">
+                        <div class="option">Wind patterns</div>
+                        <div class="option">Earth's rotation only</div>
+                        <div class="option correct">Gravitational pull of the Moon and Sun</div>
+                        <div class="option">Ocean currents</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <h3>7. Which of these is NOT a type of ocean current?</h3>
+                    <div class="options">
+                        <div class="option">Surface current</div>
+                        <div class="option">Deep water current</div>
+                        <div class="option">Rip current</div>
+                        <div class="option correct">Lunar current</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <h3>8. What is the average salinity of seawater?</h3>
+                    <div class="options">
+                        <div class="option">15 parts per thousand</div>
+                        <div class="option">25 parts per thousand</div>
+                        <div class="option correct">35 parts per thousand</div>
+                        <div class="option">45 parts per thousand</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <h3>9. Which gas do oceans absorb that helps regulate climate?</h3>
+                    <div class="options">
+                        <div class="option">Oxygen</div>
+                        <div class="option">Nitrogen</div>
+                        <div class="option correct">Carbon dioxide</div>
+                        <div class="option">Methane</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <h3>10. What is the term for the area where a river meets the ocean?</h3>
+                    <div class="options">
+                        <div class="option">Lagoon</div>
+                        <div class="option">Delta</div>
+                        <div class="option">Estuary</div>
+                        <div class="option correct">Both B and C</div>
+                    </div>
+                </div>
+                <!-- Additional questions to make 20 total -->
+                <div class="quiz-question">
+                    <h3>11. Which ocean has the most islands?</h3>
+                    <div class="options">
+                        <div class="option">Atlantic Ocean</div>
+                        <div class="option correct">Pacific Ocean</div>
+                        <div class="option">Indian Ocean</div>
+                        <div class="option">Arctic Ocean</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <h3>12. What is the name of the underwater mountain range that runs through the Atlantic Ocean?</h3>
+                    <div class="options">
+                        <div class="option">Andes Mountains</div>
+                        <div class="option">Himalayan Range</div>
+                        <div class="option correct">Mid-Atlantic Ridge</div>
+                        <div class="option">Mariana Ridge</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <h3>13. Which of these is a warm ocean current?</h3>
+                    <div class="options">
+                        <div class="option">Labrador Current</div>
+                        <div class="option">Peru Current</div>
+                        <div class="option correct">Brazil Current</div>
+                        <div class="option">California Current</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <h3>14. What is the main cause of ocean currents?</h3>
+                    <div class="options">
+                        <div class="option">Tides</div>
+                        <div class="option">Earth's rotation</div>
+                        <div class="option">Water density differences</div>
+                        <div class="option correct">All of the above</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <h3>15. Which ocean is surrounded by the Ring of Fire?</h3>
+                    <div class="options">
+                        <div class="option">Indian Ocean</div>
+                        <div class="option">Atlantic Ocean</div>
+                        <div class="option correct">Pacific Ocean</div>
+                        <div class="option">Arctic Ocean</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <h3>16. What is the term for the daily rise and fall of ocean levels?</h3>
+                    <div class="options">
+                        <div class="option">Waves</div>
+                        <div class="option">Currents</div>
+                        <div class="option correct">Tides</div>
+                        <div class="option">Surges</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <h3>17. Which marine ecosystem is most productive and diverse?</h3>
+                    <div class="options">
+                        <div class="option">Kelp forests</div>
+                        <div class="option">Open ocean</div>
+                        <div class="option correct">Coral reefs</div>
+                        <div class="option">Deep sea vents</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <h3>18. What is the name of the phenomenon where warm water in the Pacific Ocean affects global weather?</h3>
+                    <div class="options">
+                        <div class="option">La Niña</div>
+                        <div class="option correct">El Niño</div>
+                        <div class="option">Monsoon</div>
+                        <div class="option">Gyres</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <h3>19. Which of these is NOT a threat to oceans?</h3>
+                    <div class="options">
+                        <div class="option">Overfishing</div>
+                        <div class="option">Pollution</div>
+                        <div class="option">Climate change</div>
+                        <div class="option correct">Lunar cycles</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <h3>20. What percentage of ocean life is still undiscovered according to scientists?</h3>
+                    <div class="options">
+                        <div class="option">25%</div>
+                        <div class="option">50%</div>
+                        <div class="option correct">Over 80%</div>
+                        <div class="option">Less than 10%</div>
+                    </div>
+                </div>
                 <button class="btn" id="submit-quiz">Submit Answers</button>
             </div>
         </section>
@@ -565,17 +925,35 @@
                     <i class="fas fa-water"></i>
                     <h2>Seas & Oceans</h2>
                 </div>
-                <p>Educational Resource for Pearson Geography Classes 8 & 9</p>
+                <p>Beacon House Social Page</p>
                 <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.facebook.com/p/Beaconhouse-Middle-Branch-North-Nazimabad-100064192800909/"><i class="fab fa-facebook"></i></a>
+<!--                     <a href="#"><i class="fab fa-twitter"></i></a> -->
+<!--                     <a href="#"><i class="fab fa-instagram"></i></a> -->
+<!--                     <a href="#"><i class="fab fa-youtube"></i></a> -->
                 </div>
-                <p>&copy; 2023 Geography Education. All rights reserved.</p>
+                <p>&copy; 2025 AS Developers | BSS Class 8 Geography. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
+    <!-- Review Modal -->
+    <div class="modal" id="review-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>How did you like our website?</h2>
+            <p>Please rate your experience and provide feedback to help us improve.</p>
+            <div class="stars">
+                <span class="star" data-value="1">&#9733;</span>
+                <span class="star" data-value="2">&#9733;</span>
+                <span class="star" data-value="3">&#9733;</span>
+                <span class="star" data-value="4">&#9733;</span>
+                <span class="star" data-value="5">&#9733;</span>
+            </div>
+            <textarea id="feedback" placeholder="Your feedback (optional)" rows="4"></textarea>
+            <button class="btn" id="submit-review">Submit Review</button>
+        </div>
+    </div>
 
     <script>
         // Mobile menu toggle
@@ -588,11 +966,11 @@
         const mapInfo = document.getElementById('map-info');
         
         const oceanData = {
-            'Pacific Ocean': 'The Pacific Ocean is the largest and deepest ocean, covering approximately 63 million square miles. It contains more than half of the free water on Earth and is larger than all of Earth\'s land area combined.',
-            'Atlantic Ocean': 'The Atlantic Ocean is the second largest ocean, covering about 41 million square miles. It separates the Americas from Europe and Africa and has the longest coastline.',
-            'Indian Ocean': 'The Indian Ocean is the third largest ocean, covering about 27 million square miles. It is the warmest ocean and has limited marine life due to higher water temperatures.',
-            'Southern Ocean': 'The Southern Ocean, also known as the Antarctic Ocean, surrounds Antarctica. It is the fourth largest ocean and is home to the Antarctic Circumpolar Current.',
-            'Arctic Ocean': 'The Arctic Ocean is the smallest and shallowest ocean, covering about 5.4 million square miles. It is surrounded by the landmasses of North America, Eurasia, and Greenland.'
+            'Pacific Ocean': 'The Pacific Ocean is the largest and deepest ocean, covering approximately 63 million square miles. It contains more than half of the free water on Earth and is larger than all of Earth\'s land area combined. The Pacific contains around 25,000 islands, much more than all the other oceans combined.',
+            'Atlantic Ocean': 'The Atlantic Ocean is the second largest ocean, covering about 41 million square miles. It separates the Americas from Europe and Africa and has the longest coastline. The Atlantic is the busiest ocean for trade and transportation.',
+            'Indian Ocean': 'The Indian Ocean is the third largest ocean, covering about 27 million square miles. It is the warmest ocean and has limited marine life due to higher water temperatures. It is bounded by Africa, Asia, Australia, and the Southern Ocean.',
+            'Southern Ocean': 'The Southern Ocean, also known as the Antarctic Ocean, surrounds Antarctica. It is the fourth largest ocean and is home to the Antarctic Circumpolar Current, the longest ocean current that moves continuously eastward.',
+            'Arctic Ocean': 'The Arctic Ocean is the smallest and shallowest ocean, covering about 5.4 million square miles. It is surrounded by the landmasses of North America, Eurasia, and Greenland. Much of the ocean is covered by sea ice that expands in winter and shrinks in summer.'
         };
 
         oceanAreas.forEach(ocean => {
@@ -636,7 +1014,7 @@
                 }
             });
             
-            alert(`You scored ${score} out of ${questions.length}!`);
+            alert(`You scored ${score} out of ${questions.length}! ${score >= 15 ? 'Great job!' : 'Keep studying!'}`);
         });
 
         // Smooth scrolling for navigation links
@@ -651,6 +1029,72 @@
                     behavior: 'smooth'
                 });
             });
+        });
+
+        // Review Modal functionality
+        const reviewModal = document.getElementById('review-modal');
+        const closeModal = document.querySelector('.close-modal');
+        const stars = document.querySelectorAll('.star');
+        const submitReview = document.getElementById('submit-review');
+        
+        // Check if user has visited before
+        if (!localStorage.getItem('visitedBefore')) {
+            // First visit, set flag for next time
+            localStorage.setItem('visitedBefore', 'true');
+        } else {
+            // Second visit, show modal after a delay
+            setTimeout(() => {
+                reviewModal.style.display = 'flex';
+            }, 3000);
+        }
+        
+        // Close modal
+        closeModal.addEventListener('click', function() {
+            reviewModal.style.display = 'none';
+        });
+        
+        // Star rating
+        stars.forEach(star => {
+            star.addEventListener('click', function() {
+                const value = parseInt(this.getAttribute('data-value'));
+                
+                // Reset all stars
+                stars.forEach(s => s.classList.remove('active'));
+                
+                // Activate stars up to the clicked one
+                stars.forEach(s => {
+                    if (parseInt(s.getAttribute('data-value')) <= value) {
+                        s.classList.add('active');
+                    }
+                });
+            });
+        });
+        
+        // Submit review
+        submitReview.addEventListener('click', function() {
+            const feedback = document.getElementById('feedback').value;
+            let rating = 0;
+            
+            // Get selected rating
+            stars.forEach(star => {
+                if (star.classList.contains('active')) {
+                    rating = parseInt(star.getAttribute('data-value'));
+                }
+            });
+            
+            if (rating > 0) {
+                alert(`Thank you for your ${rating}-star review!`);
+                reviewModal.style.display = 'none';
+            } else {
+                alert('Please select a rating');
+            }
+        });
+        
+        // Close modal if clicked outside
+        window.addEventListener('click', function(e) {
+            if (e.target === reviewModal) {
+                reviewModal.style.display = 'none';
+            }
         });
     </script>
 </body>

@@ -24,8 +24,6 @@
             --ocean-shallow: #00bcd4;
             --coral: #ff7f50;
             --sand: #f5deb3;
-            --correct: #34a853;
-            --incorrect: #ea4335;
         }
 
         body {
@@ -301,76 +299,29 @@
             transform: scale(1.08);
         }
 
-        /* Enhanced Quiz Section */
+        /* Quiz Section */
         .quiz-container {
             background-color: white;
             padding: 2.5rem;
             border-radius: 15px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
             margin-bottom: 4rem;
-            position: relative;
-        }
-
-        .quiz-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid #f0f7ff;
-        }
-
-        .quiz-progress {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .progress-bar {
-            width: 200px;
-            height: 10px;
-            background-color: #f0f7ff;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(to right, var(--ocean-shallow), var(--ocean-deep));
-            width: 0%;
-            transition: width 0.5s ease;
         }
 
         .quiz-question {
             margin-bottom: 2rem;
-            padding: 1.5rem;
-            border-radius: 10px;
-            background-color: #f9f9f9;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #eee;
         }
 
-        .quiz-question.active {
-            background-color: #fff;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .question-number {
-            display: inline-block;
-            background: var(--ocean-deep);
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 30px;
-            margin-right: 10px;
+        .quiz-question:last-child {
+            border-bottom: none;
         }
 
         .options {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
+            gap: 1.2rem;
             margin-top: 1.2rem;
         }
 
@@ -381,83 +332,17 @@
             cursor: pointer;
             transition: all 0.3s ease;
             border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
         }
 
         .option:hover {
             background-color: #d4e7ff;
             border-color: var(--accent);
-            transform: translateY(-3px);
         }
 
         .option.selected {
             background-color: var(--accent);
             color: white;
             border-color: var(--ocean-deep);
-        }
-
-        .option.correct {
-            background-color: var(--correct);
-            color: white;
-            border-color: var(--correct);
-        }
-
-        .option.incorrect {
-            background-color: var(--incorrect);
-            color: white;
-            border-color: var(--incorrect);
-        }
-
-        .option input[type="radio"] {
-            position: absolute;
-            opacity: 0;
-            cursor: pointer;
-        }
-
-        .quiz-navigation {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 2rem;
-        }
-
-        .quiz-btn {
-            padding: 0.8rem 1.5rem;
-            background: var(--ocean-shallow);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .quiz-btn:hover {
-            background: var(--ocean-deep);
-            transform: translateY(-2px);
-        }
-
-        .quiz-btn:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .quiz-results {
-            text-align: center;
-            padding: 2rem;
-            display: none;
-        }
-
-        .score-display {
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--ocean-deep);
-            margin: 1rem 0;
-        }
-
-        .score-message {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
         }
 
         /* Footer */
@@ -581,11 +466,6 @@
             .section-title {
                 font-size: 2rem;
             }
-            
-            .quiz-header {
-                flex-direction: column;
-                gap: 1rem;
-            }
         }
 
         @media (max-width: 600px) {
@@ -603,14 +483,6 @@
             
             .card-img {
                 height: 180px;
-            }
-            
-            .options {
-                grid-template-columns: 1fr;
-            }
-            
-            .progress-bar {
-                width: 150px;
             }
         }
 
@@ -654,7 +526,7 @@
         }
 
         .currents-img {
-            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwa90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80') center/cover;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80') center/cover;
         }
 
         .ocean-floor-img {
@@ -836,40 +708,83 @@
                 </div>
             </div>
         </section>
-
-        <!-- Ocean Features Section -->
-        <section id="oceans2">
-            <h2 class="section-title">Ocean Features</h2>
-            <div class="card-container">
-                <div class="card">
-                    <div class="card-img pacific-img">
-                        <i class="fas fa-isthmus"></i>
-                    </div>
-                    <div class="card-content">
-                        <h3>Isthmus</h3>
-                        <p>An isthmus is a narrow strip of land that connects two larger landmasses. It usually has water on both of its sides. An isthmus is important because it allows movement between the two larger areas of land. The Isthmus of Panama, for example, connects North America and South America. In geography, it is seen as the opposite of a strait, which is a narrow waterway connecting two larger water bodies.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-img atlantic-img">
-                        <i class="fas fa-water"></i>
-                    </div>
-                    <div class="card-content">
-                        <h3>Strait</h3>
-                        <p>A strait is a naturally formed, narrow, typically navigable waterway that connects two larger bodies of water. It is most commonly formed by water erosion from ocean currents. Straits are important shipping routes and often have strategic significance. Examples include the Strait of Gibraltar connecting the Atlantic Ocean to the Mediterranean Sea.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-img indian-img">
-                        <i class="fas fa-island-tropical"></i>
-                    </div>
-                    <div class="card-content">
-                        <h3>Archipelago</h3>
-                        <p>An archipelago is a group of islands scattered in lakes, rivers, or the ocean. The word archipelago comes from the Greek words meaning "chief sea". Some of the largest archipelagos include Indonesia, the Philippines, and the Caribbean Islands. Archipelagos are often formed through volcanic activity or erosion.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!--        <br>-->
+<!--        <br>-->
+<!--        <br>-->
+        <!--Its Ocean wala 2 -->
+<!--        <section id="oceans">-->
+<!--            <h2 class="section-title">Ocean Features</h2>-->
+<!--            <div class="card-container">-->
+<!--                <div class="card">-->
+<!--                    <div class="card-img pacific-img">-->
+<!--                        <i class="fas fa-isthmus"></i>-->
+<!--                    </div>-->
+<!--                    <div class="card-content">-->
+<!--                        <h3>Isthmus</h3>-->
+<!--                        <p>An isthmus is a narrow strip of land that connects two larger landmasses. It usually has water on both of its sides. An isthmus is important because it allows movement between the two larger areas of land. The Isthmus of Panama, for example, connects North America and South America. In geography, it is seen as the opposite of a strait, which is a narrow waterway connecting two larger water bodies.</p>-->
+<!--                         <p><strong>Area:</strong> 165,250,000 km²</p>
+<!--                        <p><strong>Deepest Point:</strong> Mariana Trench (10,928 m)</p>-->
+<!--                    </div> -->-->
+<!--                </div>-->
+<!--                <div class="card">-->
+<!--                    <div class="card-img atlantic-img">-->
+<!--                        <i class="fas fa-globe-africa"></i>-->
+<!--                    </div>-->
+<!--                    <div class="card-content">-->
+<!--                        <h3>Atlantic Ocean</h3>-->
+<!--                        <p>The second largest ocean, covering approximately 20% of the Earth's surface. It separates the Americas from Europe and Africa.</p>-->
+<!--                        <p><strong>Area:</strong> 106,460,000 km²</p>-->
+<!--                        <p><strong>Deepest Point:</strong> Puerto Rico Trench (8,376 m)</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="card">-->
+<!--                    <div class="card-img indian-img">-->
+<!--                        <i class="fas fa-globe-asia"></i>-->
+<!--                    </div>-->
+<!--                    <div class="card-content">-->
+<!--                        <h3>Indian Ocean</h3>-->
+<!--                        <p>The third largest ocean, bounded by Asia to the north, Africa to the west, Australia to the east, and the Southern Ocean to the south.</p>-->
+<!--                        <p><strong>Area:</strong> 70,560,000 km²</p>-->
+<!--                        <p><strong>Deepest Point:</strong> Java Trench (7,258 m)</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+            
+<!--            <div class="card-container">-->
+<!--                <div class="card">-->
+<!--                    <div class="card-img" style="background-color: #1a73e8;">-->
+<!--                        <i class="fas fa-icicles"></i>-->
+<!--                    </div>-->
+<!--                    <div class="card-content">-->
+<!--                        <h3>Arctic Ocean</h3>-->
+<!--                        <p>The smallest and shallowest of the world's five major oceans, surrounding the North Pole. It is partially covered by sea ice throughout the year.</p>-->
+<!--                        <p><strong>Area:</strong> 14,060,000 km²</p>-->
+<!--                        <p><strong>Deepest Point:</strong> Eurasian Basin (5,450 m)</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="card">-->
+<!--                    <div class="card-img" style="background-color: #34a853;">-->
+<!--                        <i class="fas fa-wind"></i>-->
+<!--                    </div>-->
+<!--                    <div class="card-content">-->
+<!--                        <h3>Southern Ocean</h3>-->
+<!--                        <p>Also known as the Antarctic Ocean, it surrounds Antarctica and is the fourth-largest ocean. It is home to the powerful Antarctic Circumpolar Current.</p>-->
+<!--                        <p><strong>Area:</strong> 20,330,000 km²</p>-->
+<!--                        <p><strong>Deepest Point:</strong> South Sandwich Trench (7,235 m)</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="card">-->
+<!--                    <div class="card-img ocean-floor-img">-->
+<!--                        <i class="fas fa-mountain"></i>-->
+<!--                    </div>-->
+<!--                    <div class="card-content">-->
+<!--                        <h3>Ocean Floor Features</h3>-->
+<!--                        <p>The ocean floor contains diverse features including continental shelves, abyssal plains, mid-ocean ridges, and deep-sea trenches.</p>-->
+<!--                        <p>Underwater mountains called seamounts and hydrothermal vents supporting unique ecosystems are also found on the ocean floor.</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </section>-->
 
         <!-- Interactive Map Section -->
         <section id="map">
@@ -889,59 +804,192 @@
             </div>
         </section>
 
-        <!-- Enhanced Quiz Section -->
+        <!-- Quiz Section -->
         <section id="quiz">
             <h2 class="section-title">Test Your Knowledge</h2>
             <div class="quiz-container">
-                <div class="quiz-header">
-                    <h3>Ocean Knowledge Quiz</h3>
-                    <div class="quiz-progress">
-                        <span>Progress:</span>
-                        <div class="progress-bar">
-                            <div class="progress-fill" id="quiz-progress"></div>
-                        </div>
-                        <span id="progress-text">1/20</span>
+                <div class="quiz-question">
+                    <h3>1. Which is the largest ocean on Earth?</h3>
+                    <div class="options">
+                        <div class="option">Atlantic Ocean</div>
+                        <div class="option correct">Pacific Ocean</div>
+                        <div class="option">Indian Ocean</div>
+                        <div class="option">Arctic Ocean</div>
                     </div>
                 </div>
-
-                <div class="quiz-questions">
-                    <div class="quiz-question active" data-question="1">
-                        <h3><span class="question-number">1</span> Which is the largest ocean on Earth?</h3>
-                        <div class="options">
-                            <div class="option" data-correct="false">Atlantic Ocean</div>
-                            <div class="option" data-correct="true">Pacific Ocean</div>
-                            <div class="option" data-correct="false">Indian Ocean</div>
-                            <div class="option" data-correct="false">Arctic Ocean</div>
-                        </div>
+                <div class="quiz-question">
+                    <h3>2. What percentage of the Earth's surface is covered by oceans?</h3>
+                    <div class="options">
+                        <div class="option">50%</div>
+                        <div class="option">60%</div>
+                        <div class="option correct">71%</div>
+                        <div class="option">80%</div>
                     </div>
-
-                    <div class="quiz-question" data-question="2">
-                        <h3><span class="question-number">2</span> What percentage of the Earth's surface is covered by oceans?</h3>
-                        <div class="options">
-                            <div class="option" data-correct="false">50%</div>
-                            <div class="option" data-correct="false">60%</div>
-                            <div class="option" data-correct="true">71%</div>
-                            <div class="option" data-correct="false">80%</div>
-                        </div>
+                </div>
+                <div class="quiz-question">
+                    <h3>3. Which ocean is the warmest?</h3>
+                    <div class="options">
+                        <div class="option">Atlantic Ocean</div>
+                        <div class="option correct">Indian Ocean</div>
+                        <div class="option">Pacific Ocean</div>
+                        <div class="option">Southern Ocean</div>
                     </div>
-
-                    <!-- Additional questions would follow the same pattern -->
-                    <!-- For brevity, I'm including just 2 questions in this example -->
                 </div>
-
-                <div class="quiz-navigation">
-                    <button class="quiz-btn" id="prev-btn" disabled>Previous</button>
-                    <button class="quiz-btn" id="next-btn">Next</button>
+                <div class="quiz-question">
+                    <h3>4. What is the deepest point in the ocean called?</h3>
+                    <div class="options">
+                        <div class="option">Abyssal Plain</div>
+                        <div class="option">Seamount</div>
+                        <div class="option correct">Mariana Trench</div>
+                        <div class="option">Mid-Ocean Ridge</div>
+                    </div>
                 </div>
-
-                <div class="quiz-results" id="quiz-results">
-                    <h3>Quiz Results</h3>
-                    <div class="score-display">Your score: <span id="final-score">0</span>/20</div>
-                    <p class="score-message" id="score-message">Keep learning about our oceans!</p>
-                    <button class="btn" id="restart-quiz">Try Again</button>
+                <div class="quiz-question">
+                    <h3>5. Which ocean current affects the climate of Western Europe?</h3>
+                    <div class="options">
+                        <div class="option">California Current</div>
+                        <div class="option">Antarctic Circumpolar Current</div>
+                        <div class="option correct">Gulf Stream</div>
+                        <div class="option">Kuroshio Current</div>
+                    </div>
                 </div>
-
-                <button class="btn" id="submit-quiz" style="display: none;">Submit Answers</button>
+                <div class="quiz-question">
+                    <h3>6. What causes tides in the oceans?</h3>
+                    <div class="options">
+                        <div class="option">Wind patterns</div>
+                        <div class="option">Earth's rotation only</div>
+                        <div class="option correct">Gravitational pull of the Moon and Sun</div>
+                        <div class="option">Ocean currents</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <h3>7. Which of these is NOT a type of ocean current?</h3>
+                    <div class="options">
+                        <div class="option">Surface current</div>
+                        <div class="option">Deep water current</div>
+                        <div class="option">Rip current</div>
+                        <div class="option correct">Lunar current</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <h3>8. What is the average salinity of seawater?</h3>
+                    <div class="options">
+                        <div class="option">15 parts per thousand</div>
+                        <div class="option">25 parts per thousand</div>
+                        <div class="option correct">35 parts per thousand</div>
+                        <div class="option">45 parts per thousand</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <h3>9. Which gas do oceans absorb that helps regulate climate?</h3>
+                    <div class="options">
+                        <div class="option">Oxygen</div>
+                        <div class="option">Nitrogen</div>
+                        <div class="option correct">Carbon dioxide</div>
+                        <div class="option">Methane</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <h3>10. What is the term for the area where a river meets the ocean?</h3>
+                    <div class="options">
+                        <div class="option">Lagoon</div>
+                        <div class="option">Delta</div>
+                        <div class="option">Estuary</div>
+                        <div class="option correct">Both B and C</div>
+                    </div>
+                </div>
+                <!-- Additional questions to make 20 total -->
+                <div class="quiz-question">
+                    <h3>11. Which ocean has the most islands?</h3>
+                    <div class="options">
+                        <div class="option">Atlantic Ocean</div>
+                        <div class="option correct">Pacific Ocean</div>
+                        <div class="option">Indian Ocean</div>
+                        <div class="option">Arctic Ocean</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <h3>12. What is the name of the underwater mountain range that runs through the Atlantic Ocean?</h3>
+                    <div class="options">
+                        <div class="option">Andes Mountains</div>
+                        <div class="option">Himalayan Range</div>
+                        <div class="option correct">Mid-Atlantic Ridge</div>
+                        <div class="option">Mariana Ridge</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <h3>13. Which of these is a warm ocean current?</h3>
+                    <div class="options">
+                        <div class="option">Labrador Current</div>
+                        <div class="option">Peru Current</div>
+                        <div class="option correct">Brazil Current</div>
+                        <div class="option">California Current</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <h3>14. What is the main cause of ocean currents?</h3>
+                    <div class="options">
+                        <div class="option">Tides</div>
+                        <div class="option">Earth's rotation</div>
+                        <div class="option">Water density differences</div>
+                        <div class="option correct">All of the above</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <h3>15. Which ocean is surrounded by the Ring of Fire?</h3>
+                    <div class="options">
+                        <div class="option">Indian Ocean</div>
+                        <div class="option">Atlantic Ocean</div>
+                        <div class="option correct">Pacific Ocean</div>
+                        <div class="option">Arctic Ocean</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <h3>16. What is the term for the daily rise and fall of ocean levels?</h3>
+                    <div class="options">
+                        <div class="option">Waves</div>
+                        <div class="option">Currents</div>
+                        <div class="option correct">Tides</div>
+                        <div class="option">Surges</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <h3>17. Which marine ecosystem is most productive and diverse?</h3>
+                    <div class="options">
+                        <div class="option">Kelp forests</div>
+                        <div class="option">Open ocean</div>
+                        <div class="option correct">Coral reefs</div>
+                        <div class="option">Deep sea vents</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <h3>18. What is the name of the phenomenon where warm water in the Pacific Ocean affects global weather?</h3>
+                    <div class="options">
+                        <div class="option">La Niña</div>
+                        <div class="option correct">El Niño</div>
+                        <div class="option">Monsoon</div>
+                        <div class="option">Gyres</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <h3>19. Which of these is NOT a threat to oceans?</h3>
+                    <div class="options">
+                        <div class="option">Overfishing</div>
+                        <div class="option">Pollution</div>
+                        <div class="option">Climate change</div>
+                        <div class="option correct">Lunar cycles</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <h3>20. What percentage of ocean life is still undiscovered according to scientists?</h3>
+                    <div class="options">
+                        <div class="option">25%</div>
+                        <div class="option">50%</div>
+                        <div class="option correct">Over 80%</div>
+                        <div class="option">Less than 10%</div>
+                    </div>
+                </div>
+                <button class="btn" id="submit-quiz">Submit Answers</button>
             </div>
         </section>
     </main>
@@ -957,6 +1005,9 @@
                 <p>Beacon House Social Page</p>
                 <div class="social-icons">
                     <a href="https://www.facebook.com/p/Beaconhouse-Middle-Branch-North-Nazimabad-100064192800909/"><i class="fab fa-facebook"></i></a>
+<!--                     <a href="#"><i class="fab fa-twitter"></i></a> -->
+<!--                     <a href="#"><i class="fab fa-instagram"></i></a> -->
+<!--                     <a href="#"><i class="fab fa-youtube"></i></a> -->
                 </div>
                 <p>&copy; 2025 AS Developers | BSS Class 8 Geography. All rights reserved.</p>
             </div>
@@ -1006,144 +1057,43 @@
             });
         });
 
-        // Enhanced Quiz Functionality
-        const quizQuestions = document.querySelectorAll('.quiz-question');
-        const prevBtn = document.getElementById('prev-btn');
-        const nextBtn = document.getElementById('next-btn');
-        const progressFill = document.getElementById('quiz-progress');
-        const progressText = document.getElementById('progress-text');
-        const quizResults = document.getElementById('quiz-results');
-        const finalScore = document.getElementById('final-score');
-        const scoreMessage = document.getElementById('score-message');
-        const restartQuizBtn = document.getElementById('restart-quiz');
-        const submitQuizBtn = document.getElementById('submit-quiz');
+        // Quiz functionality
+        const options = document.querySelectorAll('.option');
+        const submitButton = document.getElementById('submit-quiz');
         
-        let currentQuestion = 0;
-        let score = 0;
-        const userAnswers = new Array(quizQuestions.length).fill(null);
-        
-        // Initialize quiz
-        showQuestion(currentQuestion);
-        updateProgress();
-        
-        // Show specific question
-        function showQuestion(index) {
-            quizQuestions.forEach((question, i) => {
-                question.classList.toggle('active', i === index);
-            });
-            
-            prevBtn.disabled = index === 0;
-            nextBtn.disabled = index === quizQuestions.length - 1;
-            
-            if (index === quizQuestions.length - 1) {
-                nextBtn.textContent = 'Finish Quiz';
-            } else {
-                nextBtn.textContent = 'Next';
-            }
-            
-            // Restore previous selection if any
-            if (userAnswers[index] !== null) {
-                const options = quizQuestions[index].querySelectorAll('.option');
-                options[userAnswers[index]].classList.add('selected');
-            }
-        }
-        
-        // Update progress bar
-        function updateProgress() {
-            const progress = ((currentQuestion + 1) / quizQuestions.length) * 100;
-            progressFill.style.width = `${progress}%`;
-            progressText.textContent = `${currentQuestion + 1}/${quizQuestions.length}`;
-        }
-        
-        // Navigate to next question
-        nextBtn.addEventListener('click', function() {
-            if (currentQuestion < quizQuestions.length - 1) {
-                currentQuestion++;
-                showQuestion(currentQuestion);
-                updateProgress();
-            } else {
-                // Calculate score
-                calculateScore();
-                // Show results
-                document.querySelector('.quiz-questions').style.display = 'none';
-                document.querySelector('.quiz-navigation').style.display = 'none';
-                quizResults.style.display = 'block';
-            }
-        });
-        
-        // Navigate to previous question
-        prevBtn.addEventListener('click', function() {
-            if (currentQuestion > 0) {
-                currentQuestion--;
-                showQuestion(currentQuestion);
-                updateProgress();
-            }
-        });
-        
-        // Option selection
-        quizQuestions.forEach(question => {
-            const options = question.querySelectorAll('.option');
-            options.forEach((option, index) => {
-                option.addEventListener('click', function() {
-                    // Remove selected class from all options in this question
-                    options.forEach(opt => opt.classList.remove('selected'));
-                    
-                    // Add selected class to clicked option
-                    this.classList.add('selected');
-                    
-                    // Store user's answer
-                    userAnswers[currentQuestion] = index;
-                });
+        options.forEach(option => {
+            option.addEventListener('click', function() {
+                // Remove selected class from siblings
+                const siblings = this.parentElement.children;
+                for (let sibling of siblings) {
+                    sibling.classList.remove('selected');
+                }
+                
+                // Add selected class to clicked option
+                this.classList.add('selected');
             });
         });
-        
-        // Calculate final score
-        function calculateScore() {
-            score = 0;
-            quizQuestions.forEach((question, index) => {
+
+        submitButton.addEventListener('click', function() {
+            let score = 0;
+            const questions = document.querySelectorAll('.quiz-question');
+            
+            questions.forEach(question => {
                 const selectedOption = question.querySelector('.option.selected');
-                if (selectedOption && selectedOption.getAttribute('data-correct') === 'true') {
+                if (selectedOption && selectedOption.classList.contains('correct')) {
                     score++;
+                    selectedOption.style.backgroundColor = '#34a853';
+                } else if (selectedOption) {
+                    selectedOption.style.backgroundColor = '#ea4335';
+                    // Highlight correct answer
+                    const correctOption = question.querySelector('.option.correct');
+                    correctOption.style.backgroundColor = '#34a853';
                 }
             });
             
-            finalScore.textContent = score;
-            
-            // Set score message
-            if (score >= 18) {
-                scoreMessage.textContent = 'Excellent! You\'re an ocean expert!';
-            } else if (score >= 15) {
-                scoreMessage.textContent = 'Great job! You know your oceans well!';
-            } else if (score >= 10) {
-                scoreMessage.textContent = 'Good effort! Keep learning about our oceans!';
-            } else {
-                scoreMessage.textContent = 'Keep studying! Our oceans are fascinating to learn about!';
-            }
-        }
-        
-        // Restart quiz
-        restartQuizBtn.addEventListener('click', function() {
-            currentQuestion = 0;
-            score = 0;
-            userAnswers.fill(null);
-            
-            // Reset all selections
-            quizQuestions.forEach(question => {
-                const options = question.querySelectorAll('.option');
-                options.forEach(option => {
-                    option.classList.remove('selected', 'correct', 'incorrect');
-                });
-            });
-            
-            // Show questions again
-            document.querySelector('.quiz-questions').style.display = 'block';
-            document.querySelector('.quiz-navigation').style.display = 'flex';
-            quizResults.style.display = 'none';
-            
-            showQuestion(currentQuestion);
-            updateProgress();
+            alert(`You scored ${score} out of ${questions.length}! ${score >= 15 ? 'Great job!' : 'Keep studying!'}`);
         });
-        
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
